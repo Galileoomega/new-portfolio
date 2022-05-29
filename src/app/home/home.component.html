@@ -1,0 +1,48 @@
+<!-- SITES LIST -->
+<app-orbit *ngIf="actualShowingSite == 'orbit'"></app-orbit>
+
+<div class="wrapper">
+    <div *ngIf="showWelcomeTextC" class="header">
+        <p>Alexis L.</p>
+        <p style="margin-left: auto;">2022</p>
+    </div>
+
+    <div *ngIf="showWelcomeTextA" class="main-title">HI,</div>
+    <div *ngIf="showWelcomeTextB" class="main-title">WELCOME VISITOR,</div>
+    <div *ngIf="showWelcomeTextC" class="main-title">LET'S DISCOVER NEW UNIVERSE</div>
+
+    <div *ngIf="showWelcomeTextC" class="arrow-container" (click)="scrollToSites()">
+        <p>Explore here</p>
+        <div class="arrow-down">
+            <img src="/assets/icons/arrow2.svg" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" *ngIf="showSites">
+    <div class="navbar">
+        <div (click)="onMenu('websites')" style="margin-right: 50px;" class="menu" [ngClass]="{'menu-active': activeMenu == 'websites'}">
+            WEBSITES
+            <div></div>
+        </div>
+        <div (click)="onMenu('software')" class="menu" [ngClass]="{'menu-active': activeMenu == 'software'}">
+            SOFTWARE
+            <div></div>
+        </div>
+    </div>
+    
+    <!-- ORBIT -->
+    <div (click)="openSite('orbit')" id="orbit" class="site-bar">
+        <div [ngStyle]="{'background-image': 'url(' + orbitImage + ')'}" class="site-title">ORBIT</div>
+    </div>
+
+    <!-- AERIS -->
+    <div id="aeris" class="site-bar">
+        <div [ngStyle]="{'background-image': 'url(' + orbitImage + ')'}" class="site-title">AERIS</div>
+    </div>
+
+    <!-- OTHER -->
+    <div id="other" class="site-bar">
+        <div [ngStyle]="{'background-image': 'url(' + orbitImage + ')'}" class="site-title">MORE</div>
+    </div>
+</div>
